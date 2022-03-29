@@ -13,13 +13,13 @@ public class Homework {
         try {
             try {
                 System.out.println("Сумма элементов массива: " + invertArray(array));
-            } catch (MyArraySizeException exc) {
+            } catch (MyArraySizeException e) {
                 System.out.println("Вы вышли за границы массива!!!");
             }
         }
 
-        catch (MyArrayDataException exc) {
-            System.out.println("Неправильное значение входных данных! \n Ошибка в ячейке: " + "[" + exc.i + "," + exc.j + "]");
+        catch (MyArrayDataException e) {
+            System.out.println("Неправильное значение входных данных! \n Ошибка в ячейке: " + "[" + e.i + "," + e.j + "]");
         }
     }
 
@@ -35,9 +35,9 @@ public class Homework {
             }
             for (int j = 0; j < array.length; j++) {
                 try {
-                    k = k + Integer.parseInt(array[i][j]);
+                    k += Integer.parseInt(array[i][j]);
                 }
-                catch (NumberFormatException exc) {
+                catch (NumberFormatException e) {
                     throw new MyArrayDataException(i, j);
                 }
             }
